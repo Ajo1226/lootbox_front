@@ -4,16 +4,12 @@ import { useForceUpdate } from "../hooks/useForceUpdate";
 import { useTonWallet } from "../hooks/useTonWallet";
 import { useTonWalletConnectionError } from "../hooks/useTonWalletConnectionError";
 import { useSlicedAddress } from "../hooks/useSlicedAddress";
-import {
-  isWalletInfoCurrentlyEmbedded,
-  isWalletInfoInjected,
-} from "@tonconnect/sdk";
 import { isDesktop, isMobile, openLink } from "../utils/utils";
 
 import { useRecoilValueLoadable } from "recoil";
 import { walletsListQuery } from "../walletList";
 
-export default function TonConnectButton() {
+const TonConnectButton: React.FC<{ className: string }> = ({ className }) => {
   const [modalUniversalLink, setModalUniversalLink] = useState("");
   const forceUpdate = useForceUpdate();
   const wallet = useTonWallet();
@@ -64,20 +60,15 @@ export default function TonConnectButton() {
 
   return (
     <>
-      <div>
+      <div className={className}>
         {wallet ? (
-          <button className="text-lg rounded-xl bg-blue px-5 py-2 my-5 transition ease-in-out delay-150">
+          <button
+            className="text-lg rounded-xl bg-blue px-5 py-2 my-5 transition ease-in-out delay-150"
+            onClick={() => connector.disconnect()}
+          >
             {address}
           </button>
         ) : (
-          //   <Dropdown overlay={menu}>
-          //     <Button shape="round" type="primary">
-          //       <Space>
-          //         {address}
-          //         <DownOutlined />
-          //       </Space>
-          //     </Button>
-          //   </Dropdown>
           <button
             className="text-lg rounded-xl bg-blue px-5 py-2 my-5 transition ease-in-out delay-150"
             onClick={handleButtonClick}
@@ -88,4 +79,6 @@ export default function TonConnectButton() {
       </div>
     </>
   );
-}
+};
+
+export default TonConnectButton;
