@@ -4,7 +4,7 @@ import LootBoxClosed from "@/public/lootbox-closed.gif";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <Image className="-mt-20 -mb-40" src={LootBoxClosed} alt="loading..." />
+      <Image className=" -mb-20" src={LootBoxClosed} alt="loading..." />
       <span className=" pb-10">
         To open this box, you need to fulfill a task
       </span>

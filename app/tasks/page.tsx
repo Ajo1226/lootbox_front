@@ -1,4 +1,4 @@
-import divnk from "next/link";
+import { ReactNode } from "react";
 
 export default function Tasks() {
   return (
@@ -10,29 +10,44 @@ export default function Tasks() {
         You can choose from one of the tasks below:
       </span>
       <div>
-        <div className="flex flex-row justify-between items-center">
-          <span className="w-2/3">1. Share a lootbox with a friend</span>
-          <ActionButton>Send</ActionButton>
-        </div>
-        <div className="flex flex-row justify-between items-center">
-          <span className="w-2/3">
-            2. Upload a video with you and your friends
-          </span>
-          <ActionButton>Upload</ActionButton>
-        </div>
-        <div className="flex flex-row justify-between items-center">
-          <span className="w-2/3">3. Join our group</span>
-          <ActionButton>Join</ActionButton>
-        </div>
+        <ActionItem
+          text="1. Share a lootbox with a friend/s"
+          actionButton={<ActionButton>Send</ActionButton>}
+        />
+        <ActionItem
+          text="2. Upload a video with you and your friends"
+          actionButton={<ActionButton>Upload</ActionButton>}
+        />
+        <ActionItem
+          text="3. Join our group"
+          actionButton={<ActionButton>Join</ActionButton>}
+        />
       </div>
     </main>
   );
 }
 
-const ActionButton: React.FC<{ children: string }> = ({ children }) => {
+const ActionItem: React.FC<{
+  text: string;
+  actionButton: ReactNode;
+}> = ({ text, actionButton }) => {
   return (
-    <a href="contacts" className="bg-blue rounded h-10 w-20 text-center ">
-      {children}
+    <div className="flex flex-row justify-between items-center mb-5">
+      <span className="w-2/3">{text}</span>
+      {actionButton}
+    </div>
+  );
+};
+
+const ActionButton: React.FC<{ children: string; href?: string }> = ({
+  children,
+}) => {
+  return (
+    <a
+      href="https://t.me/share/url?url=https://google.com"
+      className="bg-blue rounded h-10 w-20 text-center  flex items-center justify-center"
+    >
+      <div>{children}</div>
     </a>
   );
 };
