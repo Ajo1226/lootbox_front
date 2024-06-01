@@ -29,7 +29,7 @@ export default function TaskCompleted() {
     <RecoilRoot>
       <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app/tonconnect-manifest.json">
         <div className="mt-10">
-          <video src="123.mp4" autoPlay muted />
+          <video src="123.mov" autoPlay muted />
           <div className="text-center items-center justify-center  text-2xl transition ease-in-out delay-150">
             <span>
               {showText ? "Congratulations! You have unlocked 5 Tons!" : null}
