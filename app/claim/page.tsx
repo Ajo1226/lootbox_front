@@ -27,17 +27,17 @@ export default function TaskCompleted() {
 
   return (
     <RecoilRoot>
-      <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app/tonconnect-manifest.json">
-        <div className="mt-10">
-          <video src="123.mov" autoPlay muted />
-          <div className="text-center items-center justify-center  text-2xl transition ease-in-out delay-150">
-            <span>
-              {showText ? "Congratulations! You have unlocked 5 Tons!" : null}
-            </span>
-            <TonConnectButton className={showConnectButton ? "" : "hidden"} />
-          </div>
+      {/* <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app/tonconnect-manifest.json"> */}
+      <div className="mt-10">
+        <video src="123.mov" autoPlay muted />
+        <div className="text-center items-center justify-center  text-2xl transition ease-in-out delay-150">
+          <span>
+            {showText ? "Congratulations! You have unlocked 5 Tons!" : null}
+          </span>
+          <TonConnectButton className={showConnectButton ? "" : "hidden"} />
         </div>
-      </TonConnectUIProvider>
+      </div>
+      {/* </TonConnectUIProvider> */}
     </RecoilRoot>
   );
 }
