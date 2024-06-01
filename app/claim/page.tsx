@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import LootBoxOpening from "@/public/lootbox-opening.gif";
 
 export default function TaskCompleted() {
   const [showText, setShowText] = useState(false);
@@ -10,11 +8,11 @@ export default function TaskCompleted() {
   useEffect(() => {
     setTimeout(() => {
       setShowText(true);
-    }, 6000);
+    }, 5000);
   });
   return (
     <div>
-      <Image className="" src={LootBoxOpening} alt="loading..." />
+      <video src="123.mov" autoPlay muted />
       <div className="text-center items-center justify-center -mt-3 text-xl">
         <span>{showText ? "You gained 5 Tons!" : null}</span>
       </div>
