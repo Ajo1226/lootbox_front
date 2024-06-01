@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@tonconnect/sdk": "^3.0.3",
+    "@tonconnect/ui-react": "^2.0.3",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "recoil": "^0.7.7",
     "ton": "^13.9.0",
     "ton-core": "^0.53.0",
     "ton-crypto": "^3.2.0"
