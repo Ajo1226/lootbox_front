@@ -16,6 +16,9 @@ const config: Config = {
       colors: {
         blue: "#3fa9e4",
       },
+      boxShadow: {
+        buttonGlow: "0 0 10px 0 #3fa9e4",
+      },
     },
   },
   plugins: [],

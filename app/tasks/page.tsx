@@ -10,7 +10,7 @@ export default function Tasks() {
         You can choose from one of the tasks below:
       </span>
       <div>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between items-center">
           <span className="w-2/3">1. Share a lootbox with a friend</span>
           <ActionButton>Send</ActionButton>
         </div>
@@ -31,7 +31,7 @@ export default function Tasks() {
 
 const ActionButton: React.FC<{ children: string }> = ({ children }) => {
   return (
-    <a href="contacts" className="bg-blue rounded h-10 w-20 text-center">
+    <a href="contacts" className="bg-blue rounded h-10 w-20 text-center ">
       {children}
     </a>
   );
