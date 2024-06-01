@@ -27,12 +27,12 @@ export default function TaskCompleted() {
 
   return (
     // <RecoilRoot>
-    <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app>/tonconnect-manifest.json">
+    <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app/tonconnect-manifest.json">
       <div className="mt-10">
         <video src="123.mp4" autoPlay muted />
         <div className="text-center items-center justify-center -mt-10 text-3xl transition ease-in-out delay-150">
           <span>{showText ? "You gained 5 Tons!" : null}</span>
-          {showConnectButton ? <TonConnectButton /> : null}
+          <TonConnectButton className={showConnectButton ? "" : "hidden"} />
         </div>
       </div>
     </TonConnectUIProvider>
