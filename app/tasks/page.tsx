@@ -9,7 +9,7 @@ export default function Tasks() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       {hasShared ? (
-        <TaskCompleted />
+        <ClaimReward />
       ) : (
         <TasksList onShare={(hasShared) => setHasShared(hasShared)} />
       )}
@@ -17,8 +17,18 @@ export default function Tasks() {
   );
 }
 
-const TaskCompleted: React.FC = () => {
-  return <div>You completed it!</div>;
+const ClaimReward: React.FC = () => {
+  return (
+    <div className="flex flex-col justify-center items-center">
+      <div className="pb-5">Task Completed Successfully!</div>
+      <a
+        href="claim"
+        className="bg-blue rounded h-10 w-fit px-5 text-center flex items-center justify-center"
+      >
+        Claim Here!
+      </a>
+    </div>
+  );
 };
 
 const TasksList: React.FC<{ onShare: (prevState: boolean) => void }> = ({
@@ -26,9 +36,9 @@ const TasksList: React.FC<{ onShare: (prevState: boolean) => void }> = ({
 }) => {
   return (
     <>
-      <span className="-mt-20 pb-5 text-center">
-        You can choose from one of the tasks below:
-      </span>
+      <h1 className="-mt-20 pb-5 text-center font-bold text-lg">
+        Choose from one of the tasks below:
+      </h1>
       <div>
         <ActionItem
           text="1. Share a lootbox with a friend/s"
@@ -67,7 +77,10 @@ const ActionButton: React.FC<{
     <a
       onClick={(event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        window.open("https://t.me/share/url?url=https://google.com", "_blank");
+        window.open(
+          "https://t.me/share/url?url=https://lootfront.netlify.app",
+          "_blank"
+        );
         onShare(true);
 
         // Simulate a delay to allow the user to share the link
