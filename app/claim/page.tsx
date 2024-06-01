@@ -12,7 +12,7 @@ export default function TaskCompleted() {
   });
   return (
     <div>
-      <video src="123.mov" autoPlay muted />
+      <video src="123.mp4" autoPlay muted />
       <div className="text-center items-center justify-center -mt-3 text-xl">
         <span>{showText ? "You gained 5 Tons!" : null}</span>
       </div>
