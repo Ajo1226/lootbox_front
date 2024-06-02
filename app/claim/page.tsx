@@ -30,7 +30,7 @@ export default function TaskCompleted() {
     // <RecoilRoot>
     <TonConnectUIProvider manifestUrl="https://lootfront.netlify.app/tonconnect-manifest.json">
       <div className="mt-10 flex flex-col items-center justify-center justify-items-center">
-        <video src="123.mp4" autoPlay muted />
+        <video src="123.mp4" autoPlay playsInline muted />
         {/* <Image className="" src={LootBoxOpening} alt="loading..." /> */}
         <div className="text-center items-center justify-center  text-2xl transition ease-in-out delay-150 mb-5">
           <span>
