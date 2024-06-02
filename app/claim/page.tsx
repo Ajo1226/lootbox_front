@@ -6,7 +6,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { connector } from "../components/TonConnector";
 import { RecoilRoot } from "recoil";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
-import LootBoxOpening from "@/public/lootbox-opening-gif.gif";
+import LootBoxOpening from "@/public/lootbox-opening-optimize.gif";
 import Image from "next/image";
 export default function TaskCompleted() {
   const [showText, setShowText] = useState(false);
