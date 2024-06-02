@@ -1,11 +1,9 @@
-"use client";
-
 import { connector } from "../components/TonConnector";
 import { useState, useEffect, useCallback } from "react";
 import { useForceUpdate } from "../hooks/useForceUpdate";
 import { useTonWallet } from "../hooks/useTonWallet";
 import { useTonWalletConnectionError } from "../hooks/useTonWalletConnectionError";
-import { useSlicedAddress } from "../hooks/useSlicedAddress";
+// import { useSlicedAddress } from "../hooks/useSlicedAddress";
 import { isDesktop, isMobile, openLink } from "../utils/utils";
 
 import { useRecoilValueLoadable } from "recoil";
@@ -28,10 +26,10 @@ const TonConnectButton: React.FC<{ className: string }> = ({ className }) => {
 
   const walletsList = useRecoilValueLoadable(walletsListQuery);
 
-  const address = useSlicedAddress(
-    wallet?.account.address,
-    wallet?.account.chain
-  );
+  // const address = useSlicedAddress(
+  //   wallet?.account.address,
+  //   wallet?.account.chain
+  // );
 
   const handleButtonClick = useCallback(async () => {
     // Use loading screen/UI instead (while wallets list is loading)
@@ -40,7 +38,7 @@ const TonConnectButton: React.FC<{ className: string }> = ({ className }) => {
     }
 
     if (!isDesktop() && walletsList.contents.embeddedWallet) {
-      connector.connect({
+      connector?.connect({
         jsBridgeKey: walletsList.contents.embeddedWallet.jsBridgeKey,
       });
       return;
@@ -51,7 +49,9 @@ const TonConnectButton: React.FC<{ className: string }> = ({ className }) => {
       bridgeUrl: walletsList.contents.walletsList[0].bridgeUrl,
     };
 
-    const universalLink = connector.connect(tonkeeperConnectionSource);
+    const universalLink = connector
+      ? connector.connect(tonkeeperConnectionSource)
+      : "";
 
     if (isMobile()) {
       openLink(universalLink, "_blank");
@@ -66,9 +66,9 @@ const TonConnectButton: React.FC<{ className: string }> = ({ className }) => {
         {wallet ? (
           <button
             className="text-lg rounded-xl bg-blue px-5 py-2 my-5 transition ease-in-out delay-150"
-            onClick={() => connector.disconnect()}
+            onClick={() => connector?.disconnect()}
           >
-            {address}
+            {wallet?.account.address}
           </button>
         ) : (
           <button

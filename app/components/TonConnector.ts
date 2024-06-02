@@ -1,3 +1,3 @@
 import { TonConnect } from "@tonconnect/sdk";
 
-export const connector = new TonConnect();
+export const connector = window !== undefined ? new TonConnect() : null;

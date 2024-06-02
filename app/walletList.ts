@@ -1,3 +1,5 @@
+"use client";
+
 import { isWalletInfoInjected } from "@tonconnect/sdk";
 import { selector } from "recoil";
 import { connector } from "./components/TonConnector";
@@ -5,7 +7,7 @@ import { connector } from "./components/TonConnector";
 export const walletsListQuery = selector({
   key: "walletsList",
   get: async () => {
-    const walletsList = await connector.getWallets();
+    const walletsList = connector ? await connector.getWallets() : [];
 
     const embeddedWallet = walletsList
       .filter(isWalletInfoInjected)
