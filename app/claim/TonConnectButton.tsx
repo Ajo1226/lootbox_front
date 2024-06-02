@@ -1,3 +1,5 @@
+"use client";
+
 import { connector } from "../components/TonConnector";
 import { useState, useEffect, useCallback } from "react";
 import { useForceUpdate } from "../hooks/useForceUpdate";
